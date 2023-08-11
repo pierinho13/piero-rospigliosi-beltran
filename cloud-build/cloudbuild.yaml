@@ -1,32 +1,13 @@
 steps:
 # Instalar dependencias
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
-  dir: 'resume'
-
-# Compilar la aplicación Angular
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
-  dir: 'resume'
-
-# Mover la carpeta dist a otra ubicación
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['mv', 'resume/dist', 'container']
-
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'pierinho13/resume:$COMMIT_SHA', 'container']
-
-  # Sube la imagen Docker a Docker hub
-- name: gcr.io/cloud-builders/gcloud
-  args: ['secrets', 'versions', 'access', 'latest', '--secret', 'docker-hub-password']
-  id: 'get-secrets'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    echo "Docker Password: $$SECRETS"
-    echo "$$SECRETS" | docker login -u "$_DOCKER_USERNAME" --password-stdin docker.io
-    docker push pierinho13/resume:$COMMIT_SHA
-
-substitutions:
-  _DOCKER_USERNAME: 'pierinho13'
+# Despliega la imagen en Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+    - 'run'
+    - 'deploy'
+    - 'sretask'
+    - '--image'
+    - 'pierinho13/resume:latest'
+    - '--region'
+    - 'europe-west1'
