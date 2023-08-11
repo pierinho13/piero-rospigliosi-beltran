@@ -17,14 +17,16 @@ steps:
   args: ['build', '-t', 'pierinho13/resume:$COMMIT_SHA', 'container']
 
   # Sube la imagen Docker a Docker hub
-- name: 'gcr.io/cloud-builders/docker'
+- name: gcr.io/cloud-builders/gcloud
+  args: ['secrets', 'versions', 'access', 'latest', '--secret', 'docker-hub-password']
+  id: 'get-secrets'
   entrypoint: 'bash'
   args:
   - '-c'
-  - 'docker login -u $_USERNAME -p $_PASSWORD && docker push pierinho13/resume:$COMMIT_SHA'
-  secretEnv: ['_USERNAME', '_PASSWORD']
-secrets:
-- kmsKeyName: 
-  secretEnv:
-    _USERNAME: 'projects/geometric-edge-395607/secrets/docker-hub-usuario/versions/1'
-    _PASSWORD: 'projects/geometric-edge-395607/secrets/docker-hub-password/versions/1'
+  - |
+    echo "Docker Password: $$SECRETS"
+    echo "$$SECRETS" | docker login -u "$_DOCKER_USERNAME" --password-stdin docker.io
+    docker push pierinho13/resume:$COMMIT_SHA
+
+substitutions:
+  _DOCKER_USERNAME: 'pierinho13'
