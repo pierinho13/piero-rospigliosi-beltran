@@ -14,7 +14,7 @@ steps:
   args: ['mv', 'resume/dist', 'container']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'pierinho13/resume:$COMMIT_SHA', 'sre-task']
+  args: ['build', '-t', 'pierinho13/resume:$COMMIT_SHA', 'container']
 
   # Sube la imagen Docker a Docker hub
 - name: 'gcr.io/cloud-builders/docker'
