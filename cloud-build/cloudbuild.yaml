@@ -6,7 +6,7 @@ steps:
     args:
     - 'run'
     - 'deploy'
-    - 'sretask'
+    - 'resume-cv'
     - '--image'
     - 'pierinho13/resume:latest'
     - '--region'
