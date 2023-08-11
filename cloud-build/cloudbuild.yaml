@@ -11,3 +11,5 @@ steps:
     - 'pierinho13/resume:latest'
     - '--region'
     - 'europe-west1'
+    - '--project'
+    - 'geometric-edge-395607'
