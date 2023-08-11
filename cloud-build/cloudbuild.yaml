@@ -14,4 +14,4 @@ steps:
     - '--project'
     - 'geometric-edge-395607'
   options:
-  logging: NONE
+    logging: NONE
