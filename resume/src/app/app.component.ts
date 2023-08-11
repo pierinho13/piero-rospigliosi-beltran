@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DockModule } from 'primeng/dock';
+
 
 @Component({
   selector: 'app-root',
