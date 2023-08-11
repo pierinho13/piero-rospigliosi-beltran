@@ -13,3 +13,5 @@ steps:
     - 'europe-west1'
     - '--project'
     - 'geometric-edge-395607'
+  options:
+  logging: NONE
