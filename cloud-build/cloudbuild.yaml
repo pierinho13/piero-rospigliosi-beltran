@@ -18,4 +18,13 @@ steps:
 
   # Sube la imagen Docker a Docker hub
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'pierinho13/resume:$COMMIT_SHA']
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'docker login -u $_USERNAME -p $_PASSWORD && docker push pierinho13/resume:$COMMIT_SHA'
+  secretEnv: ['_USERNAME', '_PASSWORD']
+secrets:
+- kmsKeyName: 
+  secretEnv:
+    _USERNAME: 'projects/geometric-edge-395607/secrets/docker-hub-usuario/versions/1'
+    _PASSWORD: 'projects/geometric-edge-395607/secrets/docker-hub-password/versions/1'
