@@ -6,7 +6,7 @@ import { IndexRouting } from './index-routing.module';
 import { GalleriaModule } from 'primeng/galleria';
 import { DialogModule } from 'primeng/dialog';
 import { TreeModule } from 'primeng/tree';
-import { TerminalModule } from 'primeng/terminal';
+import { TerminalModule, TerminalService } from 'primeng/terminal';
 import { ToastModule } from 'primeng/toast';
 import { MenubarModule } from 'primeng/menubar';
 
@@ -15,9 +15,9 @@ import { MenubarModule } from 'primeng/menubar';
 
 
 @NgModule({
-    imports: [ DockModule, DialogModule,TreeModule, TerminalModule, GalleriaModule,MenubarModule, ToastModule, IndexRouting  ],
+    imports: [ TerminalModule, DockModule, DialogModule,TreeModule, GalleriaModule,MenubarModule, ToastModule, IndexRouting  ],
     exports: [],
     declarations: [ IndexComponent ],
-    providers: []
+    providers: [TerminalService]
 })
 export class IndexModule { }

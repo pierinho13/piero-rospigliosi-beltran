@@ -1,10 +1,18 @@
 <h1>Piero Rospigliosi Beltran</h1>
 <div class="card">
-    <div class="dock-window">
-        <p-dock [model]="items" [position]="'bottom'">
-            <ng-template pTemplate="item" let-item>
-                <img [src]="item.icon" [alt]="item.label" width="100%" />
-            </ng-template>
-        </p-dock>
-    </div>
+    <p>Experienced Senior Cloud Infrastructure Engineer with a strong background 
+        in IT and a dedicated focus on cloud architecture. I have a lead role in driving 
+        significant transformations in my current company. Committed to delivering robust
+         infrastructure solutions and enthusiastic about adopting emerging cloud technologies.
+          Highly diligent, with a constant drive for research and exploration in the cloud domain.
+        I hold a Bachelor's degree in Informatics Engineering from the University of Alcalá (Madrid),
+         complemented by a Master's degree in Software Engineering for Web Applications, 
+         also obtained from the University of Alcalá</p>
+         <img src="/assets/foto.jpeg" alt="image">
+</div>
+<div class="card">
+
+    <p>Enter "<strong>date</strong>" to display the current date, "<strong>greet</strong>" for a message and "<strong>random</strong>" to get a random number.</p>
+    <p-terminal welcomeMessage="{{welcomeMessage}}" welcomeMessage="{{welcomeMessage}}"  prompt="piero@piero:~$">
+    </p-terminal>
 </div>

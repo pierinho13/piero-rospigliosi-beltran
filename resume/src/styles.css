@@ -2,16 +2,16 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
-body, html {
+/* body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    height: 100%; /* Establecer una altura fija */
+    height: 100%;
     background-image: url(https://primefaces.org/cdn/primeng/images/dock/window.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 
 .card {
@@ -23,6 +23,23 @@ body, html {
 }
 
 
-.dock-window{
-    
+.p-terminal{
+    background: black !important;
+    color: white !important;
+    border-color: red !important;
 }
+
+.p-terminal-content{
+    /* color: greenyellow !important; */
+}
+
+.p-terminal-content-prompt{
+    color: greenyellow !important;
+}
+
+/* .p-terminal-prompt{
+    color: greenyellow !important;
+} */
+/* .p-terminal-input{
+    color: greenyellow !important;
+} */
